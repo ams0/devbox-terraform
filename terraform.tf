@@ -4,6 +4,15 @@ terraform {
             source  = "hashicorp/azurerm"
             version = "4.29.0"
         }
+
+        azuread = {
+            source  = "hashicorp/azuread"
+            version = "3.4.0"
+        }
+        azapi = {
+            source  = "Azure/azapi"
+            version = "2.4.0"
+        }
     }
 
     required_version = ">= 1.0.0"
@@ -11,7 +20,7 @@ terraform {
     backend "azurerm" {
         resource_group_name  = "resources"      # Replace with your resource group
         storage_account_name = "contostore"     # Replace with your storage account
-        container_name       = "tfstate"              # Replace with your container name
+        container_name       = "tfstate"        # Replace with your container name
         key                  = "devcenter.tfstate"    # State file name
     }
 }
