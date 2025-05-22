@@ -6,6 +6,10 @@ resource "azurerm_dev_center" "devcenter" {
   location            = azurerm_resource_group.devcenter.location
   name                = var.azurerm_dev_center_name
   resource_group_name = azurerm_resource_group.devcenter.name
+
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 resource "azurerm_dev_center_environment_type" "devs" {

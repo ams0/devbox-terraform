@@ -1,0 +1,34 @@
+{
+  "builders": [
+    {
+      "type": "azure-arm",
+      "client_id": "{{env `ARM_CLIENT_ID`}}",
+      "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
+      "tenant_id": "{{env `ARM_TENANT_ID`}}",
+      "subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
+      "managed_image_resource_group_name": "devbox-images-rg",
+      "managed_image_name": "devbox-custom-windows-image",
+      "os_type": "Windows",
+      "image_publisher": "MicrosoftWindowsDesktop",
+      "image_offer": "windows-11",
+      "image_sku": "win11-22h2-pro",
+      "location": "eastus",
+      "vm_size": "Standard_D2s_v3",
+      "communicator": "winrm",
+      "winrm_use_ssl": true,
+      "winrm_insecure": true,
+      "winrm_timeout": "1h",
+      "winrm_username": "packeruser"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "inline": [
+        "Write-Host 'Provisioning customizations...'",
+        "Install-WindowsFeature -Name Web-Server",
+        "choco install git -y"
+      ]
+    }
+  ]
+}
