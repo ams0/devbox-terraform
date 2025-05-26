@@ -7,7 +7,7 @@ description: "This definition is for the eShop frontend engineering environment"
 tasks:
   - name: ~/winget
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/common-eng-sys/main/dsc-configurations/common-config.dsc.yaml'
+      downloadUrl: 'https://raw.githubusercontent.com/ams0/devbox-terraform/refs/heads/main/.devcenter/catalog/configurations/docker.dsc.yaml'
 
   - name: ~/winget
     description: Install AZD
