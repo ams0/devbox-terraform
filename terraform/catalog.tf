@@ -34,20 +34,10 @@ resource "azurerm_key_vault" "catalog" {
   }
 }
 
-resource "azurerm_key_vault_key" "catalog" {
-  name         = "catalog-encryption-key"
+resource "azurerm_key_vault_secret" "catalog" {
+  name         = "catalog-secret"
+  value        = "<your-secret-value>" // Replace with your actual secret value or use a variable
   key_vault_id = azurerm_key_vault.catalog.id
-  key_type     = "RSA"
-  key_size     = 2048
-
-  key_opts = [
-    "decrypt",
-    "encrypt",
-    "sign",
-    "unwrapKey",
-    "verify",
-    "wrapKey",
-  ]
 
   depends_on = [azurerm_key_vault.catalog]
 }
@@ -60,6 +50,6 @@ resource "azurerm_dev_center_catalog" "definitions" {
     branch            = "main"
     path              = "DevBox-definitions"
     uri               = "https://github.com/ams0/devcenter-catalog"
-    key_vault_key_url = azurerm_key_vault_key.catalog.id
+    key_vault_secret_uri = azurerm_key_vault_secret.catalog.id
   }
 }
