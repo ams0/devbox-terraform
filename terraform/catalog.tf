@@ -50,6 +50,6 @@ resource "azurerm_dev_center_catalog" "definitions" {
     branch            = "main"
     path              = "DevBox-definitions"
     uri               = "https://github.com/ams0/devcenter-catalog"
-    key_vault_secret_uri = azurerm_key_vault_secret.catalog.id
+    key_vault_key_url = "<your-key-vault-key-url>" // Replace with the actual Key Vault Key URL
   }
 }
