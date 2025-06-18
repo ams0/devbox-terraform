@@ -25,11 +25,13 @@ This repository demonstrates how to provision Azure Dev Box resources using Terr
    Edit `backend.tf` and update the `resource_group_name`, `storage_account_name`, and `container_name` with your Azure Storage details.
 
 4. **Initialize Terraform:**
+5. 
    ```sh
-   terraform init
+    ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+    terraform init
    ```
 
-5. **Review and apply the plan:**
+6. **Review and apply the plan:**
    ```sh
    terraform plan
    terraform apply
