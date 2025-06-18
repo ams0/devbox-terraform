@@ -9,15 +9,10 @@ resource "azurerm_key_vault" "catalog" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
 
-    key_permissions = [
-      "Create",
+    secret_permissions = [
       "Get",
-      "GetRotationPolicy",
-      "List",
-      "Update",
-      "Delete",
-      "Purge",
-      "Recover"
+      "Set",
+      "List"
     ]
   }
 
@@ -25,11 +20,10 @@ resource "azurerm_key_vault" "catalog" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = azurerm_dev_center.devcenter.identity[0].principal_id
 
-    key_permissions = [
+    secret_permissions = [
       "Get",
-      "List",
-      "Decrypt",
-      "Encrypt"
+      "Set",
+      "List"
     ]
   }
 }
