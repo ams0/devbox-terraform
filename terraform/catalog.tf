@@ -30,7 +30,7 @@ resource "azurerm_key_vault" "catalog" {
 
 resource "azurerm_key_vault_secret" "catalog" {
   name         = "catalog-secret"
-  value        = "<your-secret-value>" // Replace with your actual secret value or use a variable
+  value        = var.github_pat // Replace with your actual secret value or use a variable
   key_vault_id = azurerm_key_vault.catalog.id
 
   depends_on = [azurerm_key_vault.catalog]
@@ -43,7 +43,7 @@ resource "azurerm_dev_center_catalog" "definitions" {
   catalog_github {
     branch            = "main"
     path              = "DevBox-definitions"
-    uri               = "https://github.com/ams0/devcenter-catalog"
-    key_vault_key_url = "<your-key-vault-key-url>" // Replace with the actual Key Vault Key URL
+    uri               = "https://github.com/ams0/devcenter-catalog.git" # the .git is important!
+    key_vault_key_url = azurerm_key_vault_secret.catalog.id
   }
 }

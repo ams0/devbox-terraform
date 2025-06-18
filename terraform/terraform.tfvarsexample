@@ -1,0 +1,5 @@
+azurerm_dev_center_location = "westeurope"
+azurerm_dev_center_name = "devcenter"
+azurerm_dev_center_resource_group_name = "dev-center-rg"
+azurerm_dev_center_resource_group_location = "germanywestcentral"
+github_pat = "<your-github-pat>" # Replace with your actual GitHub PAT

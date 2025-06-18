@@ -28,3 +28,10 @@ variable "dev_project_max_boxes_per_user" {
   default     = 5
   
 }
+
+variable "github_pat" {
+  description = "The GitHub Personal Access Token (PAT) used to access the Dev Center catalog."
+  type        = string
+  sensitive   = true
+  
+}
