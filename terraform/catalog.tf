@@ -12,7 +12,7 @@ resource "azurerm_key_vault" "catalog" {
     key_permissions = [
       "Create",
       "Get",
-      "getrotationpolicy"
+      "getrotationpolicy",
       "List",
       "Update",
       "Delete",
