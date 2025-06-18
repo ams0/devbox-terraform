@@ -1,5 +1,3 @@
-data "azurerm_client_config" "current" {}
-
 resource "azurerm_key_vault" "catalog" {
   name                = "${var.azurerm_dev_center_name}-catalog-kv"
   location            = azurerm_resource_group.devcenter.location
