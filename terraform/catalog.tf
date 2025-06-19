@@ -37,7 +37,7 @@ resource "azurerm_key_vault_secret" "catalog" {
 }
 
 resource "azurerm_dev_center_catalog" "definitions" {
-  name                = "example"
+  name                = "devcenter-catalog"
   resource_group_name = azurerm_resource_group.devcenter.name
   dev_center_id       = azurerm_dev_center.devcenter.id
   catalog_github {
